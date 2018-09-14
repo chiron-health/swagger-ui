@@ -61,7 +61,7 @@ class License extends React.Component {
     let { license, getComponent } = this.props
 
     const Link = getComponent("Link")
-  
+
     let name = license.get("name") || "License"
     let url = license.get("url")
 
@@ -82,13 +82,30 @@ export class InfoUrl extends React.PureComponent {
     getComponent: PropTypes.func.isRequired
   }
 
-  
   render() {
     const { url, getComponent } = this.props
 
     const Link = getComponent("Link")
 
     return <Link target="_blank" href={ sanitizeUrl(url) }><span className="url"> { url } </span></Link>
+  }
+}
+
+export class Readme extends React.Component {
+  static propTypes = {
+    getComponent: PropTypes.func.isRequired
+  }
+
+  render() {
+    let { title, body, getComponent } = this.props
+    const Markdown                    = getComponent("Markdown")
+
+    return (
+      <div className="readme">
+        <h1>{title}</h1>
+        <Markdown source={ body }></Markdown>
+      </div>
+    )
   }
 }
 
@@ -104,18 +121,19 @@ export default class Info extends React.Component {
 
   render() {
     let { info, url, host, basePath, getComponent, externalDocs } = this.props
-    let version = info.get("version")
-    let description = info.get("description")
-    let title = info.get("title")
+    let version        = info.get("version")
+    let description    = info.get("description")
+    let readmes        = info.get("readmes")
+    let title          = info.get("title")
     let termsOfService = info.get("termsOfService")
-    let contact = info.get("contact")
-    let license = info.get("license")
+    let contact        = info.get("contact")
+    let license        = info.get("license")
     const { url:externalDocsUrl, description:externalDocsDescription } = (externalDocs || fromJS({})).toJS()
 
-    const Markdown = getComponent("Markdown")
-    const Link = getComponent("Link")
+    const Markdown     = getComponent("Markdown")
+    const Link         = getComponent("Link")
     const VersionStamp = getComponent("VersionStamp")
-    const InfoUrl = getComponent("InfoUrl")
+    const InfoUrl      = getComponent("InfoUrl")
     const InfoBasePath = getComponent("InfoBasePath")
 
     return (
@@ -131,6 +149,8 @@ export default class Info extends React.Component {
         <div className="description">
           <Markdown source={ description } />
         </div>
+
+        { readmes.map((readme, iterator) => { return <Readme key={iterator} getComponent={getComponent} title={readme.get("title")} body={readme.get("body")}></Readme> }) }
 
         {
           termsOfService && <div>
