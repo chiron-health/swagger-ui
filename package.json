@@ -1,8 +1,8 @@
 {
   "name": "swagger-ui",
   "version": "3.18.3",
-  "main": "dist/swagger-ui.js",
-  "repository": "git@github.com:swagger-api/swagger-ui.git",
+  "main": "dist/index.js",
+  "repository": "git@github.com:chiron-health/swagger-ui.git",
   "contributors": [
     "(in alphabetical order)",
     "Anna Bodnia <anna.bodnia@gmail.com>",
