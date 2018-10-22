@@ -135,8 +135,8 @@ class Parameters extends Component {
               <table className="parameters">
                 <thead>
                   <tr>
-                    <th className="col col_header parameters-col_name">Name</th>
-                    <th className="col col_header parameters-col_description">Description</th>
+                    <th className="col_header parameters-col_name">Name</th>
+                    <th className="col_header parameters-col_description">Description</th>
                   </tr>
                 </thead>
                 <tbody>
