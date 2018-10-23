@@ -54,7 +54,6 @@ export default class BaseLayout extends React.Component {
           <SvgAssets />
           <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors/>}>
             <Errors/>
-            <div><h1>Hell Yeah</h1></div>
             <Row className="information-container">
               <Col mobile={12}>
                 <InfoContainer/>
