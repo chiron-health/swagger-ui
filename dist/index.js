@@ -1,5 +1,5 @@
 try {
-  module.exports.SwaggerUIBundle = require("./swagger-ui-bundle.js")
+  module.exports.SwaggerUIBundle = require("./swagger-ui-bundle1.js")
   module.exports.SwaggerUIStandalonePreset = require("./swagger-ui-standalone-preset.js")
 } catch(e) {
   // swallow the error if there's a problem loading the assets.
