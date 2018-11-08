@@ -76,7 +76,7 @@ const RequestBody = ({
               const isFile = type === "string" && (format === "binary" || format === "base64")
 
               return <tr key={key} className="parameters">
-                <td className="col parameters-col_name">
+                <td className="parameters-col_name">
                         <div className={required ? "parameter__name required" : "parameter__name"}>
                           { key }
                           { !required ? null : <span style={{color: "red"}}>&nbsp;*</span> }
@@ -89,7 +89,7 @@ const RequestBody = ({
                           { prop.get("deprecated") ? "deprecated": null }
                         </div>
                       </td>
-                      <td className="col parameters-col_description">
+                      <td className="parameters-col_description">
                         { prop.get("description") }
                         {isExecute ? <div><JsonSchemaForm
                           fn={fn}

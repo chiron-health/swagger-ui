@@ -128,10 +128,10 @@ export default class Response extends React.Component {
 
     return (
       <tr className={ "response " + ( className || "") } data-code={code}>
-        <td className="col response-col_status">
+        <td className="response-col_status">
           { code }
         </td>
-        <td className="col response-col_description">
+        <td className="response-col_description">
 
           <div className="response-col_description__inner">
             <Markdown source={ response.get( "description" ) } />
@@ -169,7 +169,7 @@ export default class Response extends React.Component {
 
 
         </td>
-        {specSelectors.isOAS3() ? <td className="col response-col_links">
+        {specSelectors.isOAS3() ? <td className="response-col_links">
           { links ?
             links.toSeq().map((link, key) => {
               return <OperationLink key={key} name={key} link={ link } getComponent={getComponent}/>
