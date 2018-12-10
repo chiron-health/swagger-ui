@@ -91,23 +91,23 @@ export class InfoUrl extends React.PureComponent {
   }
 }
 
-export class Readme extends React.Component {
-  static propTypes = {
-    getComponent: PropTypes.func.isRequired
-  }
+// export class Readme extends React.Component {
+//   static propTypes = {
+//     getComponent: PropTypes.func.isRequired
+//   }
 
-  render() {
-    let { title, body, getComponent } = this.props
-    const Markdown                    = getComponent("Markdown")
+//   render() {
+//     let { title, body, getComponent } = this.props
+//     const Markdown                    = getComponent("Markdown")
 
-    return (
-      <div className="readme">
-        <h1>{title}</h1>
-        <Markdown source={ body }></Markdown>
-      </div>
-    )
-  }
-}
+//     return (
+//       <div className="readme">
+//         <h1>{title}</h1>
+//         <Markdown source={ body }></Markdown>
+//       </div>
+//     )
+//   }
+// }
 
 export default class Info extends React.Component {
   static propTypes = {
@@ -136,6 +136,8 @@ export default class Info extends React.Component {
     const InfoUrl      = getComponent("InfoUrl")
     const InfoBasePath = getComponent("InfoBasePath")
 
+    // { readmes.map((readme, iterator) => { return <Readme key={iterator} getComponent={getComponent} title={readme.get("title")} body={readme.get("body")}></Readme> }) }
+
     return (
       <div className="info">
         <hgroup className="main">
@@ -149,8 +151,6 @@ export default class Info extends React.Component {
         <div className="description">
           <Markdown source={ description } />
         </div>
-
-        { readmes.map((readme, iterator) => { return <Readme key={iterator} getComponent={getComponent} title={readme.get("title")} body={readme.get("body")}></Readme> }) }
 
         {
           termsOfService && <div>
